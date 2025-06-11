@@ -3,7 +3,6 @@ import {AiOutlineShoppingCart} from 'react-icons/ai'
 import './index.css'
 
 const Navbar = ({cartItems}) => {
-  console.log('nav', cartItems)
   const cartLength = cartItems.length
   return (
     <nav className="nav-container">

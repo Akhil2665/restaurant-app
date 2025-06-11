@@ -35,7 +35,7 @@ class Home extends Component {
         dishQunatity: 0,
       })),
     }))
-    console.log('updatedData:', updatedTabData)
+    // console.log('updatedData:', updatedTabData)
     return updatedTabData
   }
 
@@ -44,20 +44,21 @@ class Home extends Component {
       'https://apis2.ccbp.in/restaurant-app/restaurant-menu-list-details'
     const response = await fetch(apiUrl)
     const jsonData = await response.json()
-    console.log('jsondata', jsonData)
+    // console.log('jsondata', jsonData)
     const updatedData = this.getUpdatedData(jsonData[0].table_menu_list)
 
     if (response.ok) {
       this.setState({
         responseData: updatedData,
       })
-    } else {
-      console.log('Error while fetching the data')
     }
+    // else {
+    //   console.log('Error while fetching the data')
+    // }
   }
 
   onClickedTab = event => {
-    console.log('onclicked button')
+    // console.log('onclicked button')
     this.setState({
       activeTab: event.target.name,
     })
@@ -66,7 +67,7 @@ class Home extends Component {
   addItemToCart = dish => {
     const {cartItems} = this.state
     const isAlreadyExists = cartItems?.find(item => item.dishId === dish.dishId)
-    console.log('isexisted', isAlreadyExists)
+    // console.log('isexisted', isAlreadyExists)
     if (!isAlreadyExists) {
       const newDish = {...dish, quantity: 1}
 
@@ -87,7 +88,7 @@ class Home extends Component {
   removeItemFromCart = dish => {
     const {cartItems} = this.state
     const isAlreadyExists = cartItems?.find(item => item.dishId === dish.dishId)
-    console.log('isexisted', isAlreadyExists)
+
     if (isAlreadyExists) {
       this.setState(prevState => ({
         cartItems: prevState.cartItems
