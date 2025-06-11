@@ -1,0 +1,41 @@
+.add-ons {
+  font-weight: 500;
+  color: green;
+}
+.food-image {
+  width: 180px;
+  height: 180px;
+}
+.availability {
+  color: rgb(211, 108, 108);
+}
+.about-food {
+  width: 90%;
+}
+.dish-container {
+  height: 26px;
+  width: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.dish-type-btn {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+}
+.veg-dish-container {
+  border: 1px solid green;
+}
+
+.veg-btn {
+  background-color: green;
+}
+.nonveg-dish-container {
+  border: 1px solid rgb(232, 96, 96);
+}
+
+.nonveg-btn {
+  background-color: rgb(238, 105, 105);
+}
