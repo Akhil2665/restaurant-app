@@ -1,82 +1,45 @@
-.tabs-list {
-  list-style-type: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px dotted black;
-  padding: 20px;
-}
-.food-items-list {
-  list-style-type: none;
-  padding-left: 0;
-  display: flex;
-  flex-direction: column;
+.spinner-container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
 }
 
-.food-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 20px;
-  border: 1px dotted black;
-  margin: 20px;
-  width: 98%;
+.tab-container {
+  overflow-y: auto;
+  box-shadow: 0px 10px 10px -15px #111;
+  /* -ms-overflow-style: none;
+  scrollbar-width: none;*/
 }
-.food-item-name {
-  font-size: 20px;
-  font-weight: 500;
-}
-.add-btn-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100px;
-  background-color: green;
-  border-radius: 40px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.quantity-btn {
-  background-color: transparent;
-  border: none;
-  color: white;
-}
-@media (min-width: 768px) {
-  .add-btn-container {
-    width: 120px;
-  }
-}
-.tab-item {
-  font-size: 20px;
-}
-.food-type {
-  width: 5%;
-}
-.active-tab {
-  font-size: 20px;
-  color: orange;
-}
-.tab-btn {
-  border: none;
-  background-color: transparent;
-  font-size: 20px;
+/* .tab-container::-webkit-scrollbar {
+  display: none;
+} */
+
+.each-tab-item {
+  list-style-type: none;
+  flex-shrink: 0;
+  flex-grow: 1;
+  padding: 15px 0px;
+  text-align: center;
   cursor: pointer;
 }
-.active-tab-btn {
-  font-size: 20px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid orange;
-  transition: 0.3s;
-  color: orange;
+
+.active-tab-item {
+  color: #ff6347;
+  border-bottom: 2px solid #ff6347;
+  font-weight: 600;
 }
-.food-item-details-container {
-  width: 90%;
-  display: flex;
+
+.tab-category-button {
+  color: inherit;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 18px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
 }
-.calorie-container {
-  width: 10%;
-}
-.food-image-container {
-  width: 20%;
+
+.dishes-list-container {
+  list-style-type: none;
+  padding: 25px;
 }
