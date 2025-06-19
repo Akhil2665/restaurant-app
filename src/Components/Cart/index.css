@@ -1,0 +1,19 @@
+.cart-empty-view-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+.no-orders-image {
+  height: 200px;
+  width: 200px;
+}
+.order-now-btn {
+  border: none;
+  background-color: rgb(19, 135, 218);
+  border-radius: 6px;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+}

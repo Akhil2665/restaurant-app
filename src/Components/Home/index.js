@@ -1,4 +1,5 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
+import CartContext from '../../Context/CartContext'
 
 import Navbar from '../Navbar'
 import DishItem from '../DishItem'
@@ -12,20 +13,25 @@ const Home = () => {
 
   const [cartItems, setCartItems] = useState([])
 
+  const {addCartItem} = useContext(CartContext)
+
   const addItemToCart = dish => {
-    const isAlreadyExists = cartItems.find(item => item.dishId === dish.dishId)
-    if (!isAlreadyExists) {
-      const newDish = {...dish, quantity: 1}
-      setCartItems(prev => [...prev, newDish])
-    } else {
-      setCartItems(prev =>
-        prev.map(item =>
-          item.dishId === dish.dishId
-            ? {...item, quantity: item.quantity + 1}
-            : item,
-        ),
-      )
-    }
+    console.log('dish:', dish)
+    addCartItem(dish)
+    // if (cartItems.length === 0) {
+    //   setCartItems(prev => [...prev, dish])
+    // } else {
+    //   setCartItems(prev => {
+    //     const isItemExists = prev.find(item => item.dishId === dish.dishId)
+    //     console.log(isItemExists)
+    //     if (isItemExists) {
+    //       return prev.map(item => (item.dishId === dish.dishId ? dish : item))
+    //     }
+    //     return [...prev, dish]
+    //   })
+    // }
+
+    // console.log('cartitems', cartItems)
   }
 
   const removeItemFromCart = dish => {

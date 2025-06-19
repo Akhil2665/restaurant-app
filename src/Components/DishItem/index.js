@@ -1,3 +1,5 @@
+import {useState} from 'react'
+
 import './index.css'
 
 const DishItem = ({
@@ -6,6 +8,7 @@ const DishItem = ({
   addItemToCart,
   removeItemFromCart,
 }) => {
+  const [dishQuantity, setDishQuantity] = useState(0)
   const {
     dishId,
     dishName,
@@ -19,25 +22,49 @@ const DishItem = ({
     dishAvailability,
   } = dishDetails
 
-  const onIncreaseQuantity = () => addItemToCart(dishDetails)
-  const onDecreaseQuantity = () => removeItemFromCart(dishDetails)
+  const onIncreaseQuantity = () => setDishQuantity(prev => prev + 1)
+  const onDecreaseQuantity = () => {
+    if (dishQuantity > 0) {
+      setDishQuantity(prev => prev - 1)
+    }
+  }
 
   const getQuantity = () => {
+    console.log('cartItems', cartItems)
     const cartItem = cartItems.find(item => item.dishId === dishId)
     return cartItem ? cartItem.quantity : 0
   }
 
-  const renderControllerButton = () => (
-    <div className="controller-container d-flex align-items-center bg-success">
-      <button className="button" type="button" onClick={onDecreaseQuantity}>
-        -
-      </button>
-      <p className="quantity">{getQuantity()}</p>
-      <button className="button" type="button" onClick={onIncreaseQuantity}>
-        +
-      </button>
-    </div>
-  )
+  const handleAddItemToCart = () => {
+    console.log('handleAddItemToCart')
+    addItemToCart({...dishDetails, quantity: dishQuantity})
+  }
+
+  const renderControllerButton = () => {
+    const orderedQuantity = getQuantity()
+    return (
+      <div className="order-buttons-container">
+        <div className="controller-container d-flex align-items-center bg-success mr-3">
+          <button className="button" type="button" onClick={onDecreaseQuantity}>
+            -
+          </button>
+          <p className="quantity">{dishQuantity}</p>
+          <button className="button" type="button" onClick={onIncreaseQuantity}>
+            +
+          </button>
+        </div>
+        {dishQuantity > 0 && (
+          <button
+            className="btn btn-primary "
+            type="button"
+            onClick={handleAddItemToCart}
+          >
+            ADD TO CART
+          </button>
+        )}
+      </div>
+    )
+  }
 
   return (
     <li className="mb-3 p-3 dish-item-container d-flex">
